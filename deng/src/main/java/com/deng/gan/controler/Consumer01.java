@@ -1,7 +1,6 @@
 package com.deng.gan.controler;
 
-import com.deng.gan.RabbitMqUtils;
-import com.rabbitmq.client.BuiltinExchangeType;
+import com.deng.gan.utils.RabbitMqUtils;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.DeliverCallback;
 
