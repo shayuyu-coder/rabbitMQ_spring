@@ -53,9 +53,7 @@ public class DelayedQueueConfig {
     //声明routingKey 绑定关系
     @Bean
     public Binding bindingDelayedQueue(@Qualifier("delayedQueue") Queue queue,
-                                       @Qualifier("delayedExchange")
-                                               CustomExchange
-                                               delayedExchange) {
+                                       @Qualifier("delayedExchange") CustomExchange delayedExchange) {
         return BindingBuilder.bind(queue).to(delayedExchange).with(DELAYED_ROUTING_KEY).noargs();
     }
 }
