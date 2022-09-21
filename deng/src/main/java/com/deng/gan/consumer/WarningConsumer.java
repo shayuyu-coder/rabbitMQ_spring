@@ -6,20 +6,19 @@ import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
-
 /**
  * @author: shayu
- * @date: 2022年09月20日 16:48
- * @ClassName: ConfirmConsumer
- * @Description:    发布确认高级  监听
+ * @date: 2022年09月21日 14:07
+ * @ClassName: WarningConsumer
+ * @Description:      备份交换机消费者 （监听）
  */
 
 @Slf4j
 @Component
-public class ConfirmConsumer {
-    @RabbitListener(queues = ConfirmConfig.CONFIRM_QUEUE_NAME)
-    public void receiveMsg(Message message){
+public class WarningConsumer {
+    @RabbitListener(queues = ConfirmConfig.WARNING_QUEUE_NAME)
+    public void warningMsg(Message message){
         String msg = new String(message.getBody());
-        log.info("接受到队列 confirm.queue消息:{}",msg);
+        log.info("报警发现不可路由消息:{}",msg);
     }
 }
